@@ -86,12 +86,19 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   var timeDifference = moment().diff(moment(firstFlightClean), "minutes");
     console.log("DIFFERENCE IN TIME: " + timeDifference);
 
-  var tRemainder = timeDifference % flightFrequency;
-    console.log(tRemainder);
+  var timeApart = timeDifference % flightFrequency;
+    console.log(timeApart);
 
+  var minutesAway = flightFrequency - timeApart;
+    console.log("Minutes Till Flight: " + minutesAway);
+
+   var nextFlight = moment().add(minutesAway, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextFlight).format("hh:mm"));
+
+  var nextFlightClean = moment.unix(nextFlight).format("HH:mm");
 
 
   // Add each train's data into the table
   $("#flight-table > tbody").append("<tr><td>" + airlineName + "</td><td>" + flightDestination + "</td><td>" +
-  flightFrequency + " mins" + "</td><td>");
+  flightFrequency + " mins" + "</td><td>" + nextFlightClean + "</td><td>" + minutesAway + " mins" + "</td><td>");
 });
