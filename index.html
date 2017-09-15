@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Flight Timetable</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Train Tracker -->
+    <div class="container">
+
+      <!-- Header -->
+      <div class="jumbotron">
+        <h1 class="text-center">Newark International Airport</h1>
+        <h3 class="text-center">Flight Schedule</h3>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Current Flight Schedule</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='flight-table'>
+                <thead>
+                  <tr>
+                    <th>Airline/Flight Info</th>
+                    <th>Destination</th>
+                    <th>Flight Frequency</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Add Flight</strong></h3>
+            </div>
+            <div class="panel-body">
+
+              <!-- Entry Form -->
+              <form>
+                <div class="form-group">
+                  <label for="airline-name-input">Flight Info (Airline, Flight #)</label>
+                  <input class="form-control" id="airline-name-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="destination-input">Destination (City, Country)</label>
+                  <input class="form-control" id="destination-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="first-flight-input">First Flight Time (HH:mm - military time)</label>
+                  <input class="form-control" id="first-flight-input" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="frequency-input">Frequency (min)</label>
+                  <input class="form-control" id="frequency-input" type="text">
+                </div>
+                <button class="btn btn-primary" id="add-flight-btn" type="submit">Submit</button>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="assets/javascript/logic.js"></script>
+
+  </body>
+
+</html>
