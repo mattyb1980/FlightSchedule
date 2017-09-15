@@ -75,7 +75,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(flightFrequency);
 
   // Cleaning up 
-  var firstFlightClean = moment.unix(firstFlight).format("HH:mm");
+  var firstFlightClean = moment(firstFlight, "hh:mm");
 
   // Setting current time into a variable
   var currentTime = moment().format("HH:mm");
@@ -95,7 +95,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
    var nextFlight = moment().add(minutesAway, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextFlight).format("hh:mm"));
 
-  var nextFlightClean = moment.unix(nextFlight).format("HH:mm");
+  var nextFlightClean = moment(nextFlight).format("HH:mm");
 
 
   // Add each train's data into the table
