@@ -13,9 +13,7 @@ firebase.initializeApp(config);
 
 
 
-
 var database = firebase.database();
-
 
 // Button for adding Flights
 $("#add-flight-btn").on("click", function(event) {
@@ -97,7 +95,20 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   var nextFlightClean = moment(nextFlight).format("HH:mm");
 
+function displayTime() {
+    var time = moment().format('HH:mm:ss');
+    $('#clock').html(time);
+    setTimeout(displayTime, 1000);
+}
 
+$(document).ready(function() {
+    displayTime();
+});
+  // var clockTimer = moment().format('HH:mm:ss');
+
+  // $("#clock").html(clockTimer);
+
+  // setInterval(clockTimer, 1000);
   // Add each train's data into the table
   $("#flight-table > tbody").append("<tr><td>" + airlineName + "</td><td>" + flightDestination + "</td><td>" +
   flightFrequency + " mins" + "</td><td>" + nextFlightClean + "</td><td>" + minutesAway + " mins" + "</td><td>");
