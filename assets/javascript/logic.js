@@ -112,4 +112,10 @@ $(document).ready(function() {
   // Add each train's data into the table
   $("#flight-table > tbody").append("<tr><td>" + airlineName + "</td><td>" + flightDestination + "</td><td>" +
   flightFrequency + " mins" + "</td><td>" + nextFlightClean + "</td><td>" + minutesAway + " mins" + "</td><td>");
+ 
 });
+
+
+
+
+
